@@ -95,9 +95,6 @@ dependencies {
     //Extended Icons
     implementation("androidx.compose.material:material-icons-extended:1.6.8")
 
-    //system UI Controller
-    implementation("com.google.accompanist-systemuicontroller:0.27.0")
-
 
 }
 

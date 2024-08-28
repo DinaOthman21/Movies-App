@@ -1,7 +1,7 @@
 package com.example.films_app.movieList.data.remote
 
 
-import com.example.films_app.movieList.data.Constants
+import com.example.films_app.movieList.util.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
