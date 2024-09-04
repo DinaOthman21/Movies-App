@@ -1,4 +1,4 @@
-package com.example.films_app.presentation.common
+package com.example.films_app.movieList.presentation.common
 
 
 import androidx.compose.foundation.layout.Row

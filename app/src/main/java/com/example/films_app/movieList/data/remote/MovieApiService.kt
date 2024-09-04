@@ -11,6 +11,8 @@ interface MovieApiService {
     @GET("movie/{category}")
     suspend fun getMoviesList(
         @Path("category") category : String ,
+
+        //Query parameters
         @Query("page") page :Int ,
         @Query("api_key") api_key :String = Constants.API_KEY
     )
