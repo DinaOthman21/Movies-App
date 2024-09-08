@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.films_app.movieList.presentation.moviesList.MovieListViewModel
+import androidx.navigation.compose.rememberNavController
+import com.example.films_app.movieList.presentation.moviesList.HomeScreen
 import com.example.films_app.movieList.presentation.navigation.SetBarColor
 import com.example.films_app.ui.theme.FilmsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,18 +21,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FilmsAppTheme {
-                SetBarColor(MaterialTheme.colorScheme.inverseSurface)
+                SetBarColor(MaterialTheme.colorScheme.inverseOnSurface)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val movieListViewModel = hiltViewModel<MovieListViewModel>()
-
+                    val navController = rememberNavController()
+                    HomeScreen(navController)
                 }
 
             }
         }
     }
+
+
+
 }
 
 

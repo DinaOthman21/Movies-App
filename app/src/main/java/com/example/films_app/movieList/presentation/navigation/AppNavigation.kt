@@ -28,15 +28,15 @@ fun AppNavigation(){
         navController = navController,
         startDestination = Screen.Home.route
     ) {
-        composable(Screen.Home.route){
-            HomeScreen()
+        composable( route = Screen.Home.route){
+            HomeScreen(navController )
         }
 
-        composable(Screen.Details.route + "/{movieId}" ,
+        composable(route = Screen.Details.route + "/{movieId}" ,
             arguments = listOf(
                 navArgument("movieId") {type= NavType.IntType}
-            )){ backStackEntry ->
-            // DetailsScreen(backStackEntry)
+            )){ _ ->
+            // DetailsScreen(_)
         }
 
     }
