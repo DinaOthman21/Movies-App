@@ -10,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.films_app.movieList.presentation.moviesList.MovieListViewModel
+import com.example.films_app.movieList.presentation.navigation.SetBarColor
 import com.example.films_app.ui.theme.FilmsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FilmsAppTheme {
-
+                SetBarColor(MaterialTheme.colorScheme.inverseSurface)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
