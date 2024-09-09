@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FilmsAppTheme {
-                SetBarColor(MaterialTheme.colorScheme.inverseOnSurface)
+                SetBarColor(MaterialTheme.colorScheme.onTertiary)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

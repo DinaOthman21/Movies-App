@@ -55,7 +55,7 @@ fun HomeScreen(
                     )
                 } ,
                 modifier = Modifier.shadow(2.dp) ,
-                colors = TopAppBarDefaults.mediumTopAppBarColors(MaterialTheme.colorScheme.inverseOnSurface)
+                colors = TopAppBarDefaults.mediumTopAppBarColors(MaterialTheme.colorScheme.onTertiary)
             )
 
         }

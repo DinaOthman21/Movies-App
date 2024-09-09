@@ -35,10 +35,10 @@ fun BottomNavigationBar(
     val selected = rememberSaveable {
         mutableIntStateOf(0)
     }
-
+//onSurfaceVariant
     NavigationBar {
         Row(
-            modifier = Modifier.background(MaterialTheme.colorScheme.inverseOnSurface)
+            modifier = Modifier.background(MaterialTheme.colorScheme.onTertiary)
         ) {
             items.forEachIndexed { index, bottomItem ->
                 NavigationBarItem(
