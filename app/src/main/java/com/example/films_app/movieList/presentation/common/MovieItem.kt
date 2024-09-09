@@ -14,9 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ImageNotSupported
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +27,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -37,6 +35,7 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
+import com.example.films_app.R
 import com.example.films_app.movieList.domain.Movie
 import com.example.films_app.movieList.presentation.navigation.Screen
 import com.example.films_app.movieList.util.Constants
@@ -53,12 +52,10 @@ fun MovieItem(
             .build()
     ).state
 
-
-    val defaultColor = MaterialTheme.colorScheme.secondaryContainer
+    val defaultColor = MaterialTheme.colorScheme.onTertiary
     val dominantColor by remember {
         mutableStateOf(defaultColor)
     }
-
     Column(
         modifier = Modifier
             .wrapContentHeight()
@@ -84,11 +81,15 @@ fun MovieItem(
                     .padding(6.dp)
                     .height(250.dp)
                     .clip(RoundedCornerShape(22.dp))
-                    .background(MaterialTheme.colorScheme.primaryContainer) ,
+                    .background(MaterialTheme.colorScheme.onTertiary) ,
                 contentAlignment = Alignment.Center
             ){
-                Icon(
+               /* Icon(
                     imageVector = Icons.Rounded.ImageNotSupported,
+                    contentDescription = movie.title
+                )*/
+                Image(
+                    painter = painterResource(id = R.drawable.image_not_available),
                     contentDescription = movie.title
                 )
 
@@ -125,7 +126,7 @@ fun MovieItem(
                 .padding(start = 16.dp, bottom = 12.dp, top = 4.dp)
         ){
             RatingBar(
-                modifier = Modifier.size(18.dp) ,
+                starsModifier = Modifier.size(18.dp) ,
                 rating = movie.vote_average /2
             )
             Text(
@@ -138,7 +139,6 @@ fun MovieItem(
         }
 
     }
-
-
-
 }
+
+

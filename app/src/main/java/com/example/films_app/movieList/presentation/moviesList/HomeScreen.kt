@@ -35,7 +35,7 @@ fun HomeScreen(
     movieListViewModel : MovieListViewModel
 ){
 
-    val movieState =movieListViewModel.movieListState.collectAsState().value
+    val movieListState =movieListViewModel.movieListState.collectAsState().value
     val bottomNavController = rememberNavController()
 
     Scaffold(
@@ -49,7 +49,7 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = if (movieState.isCurrentPopularScreen) stringResource(id = R.string.popularMovies)
+                        text = if (movieListState.isCurrentPopularScreen) stringResource(id = R.string.popularMovies)
                         else stringResource(id = R.string.upcomingMovies) ,
                         fontSize = 20.sp
                     )
@@ -65,7 +65,11 @@ fun HomeScreen(
             .padding(paddingValues)) {
             NavHost(navController = bottomNavController, startDestination =Screen.PopularMovies.route ) {
                 composable(Screen.PopularMovies.route){
-                  //  PopularMoviesScreen()
+                    PopularMoviesScreen(
+                        navController=navController ,
+                        movieListState = movieListState,
+                        onEvent = movieListViewModel::onEvent
+                    )
                 }
                 composable(Screen.UpComingMovies.route){
                    // UpcomingMoviesScreen()
