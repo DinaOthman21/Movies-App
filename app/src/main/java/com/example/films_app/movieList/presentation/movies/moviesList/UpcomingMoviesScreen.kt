@@ -1,4 +1,5 @@
-package com.example.films_app.movieList.presentation.moviesList
+package com.example.films_app.movieList.presentation.movies.moviesList
+
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,12 +18,12 @@ import com.example.films_app.movieList.presentation.common.MovieItem
 import com.example.films_app.movieList.util.Constants
 
 @Composable
-fun PopularMoviesScreen(
+fun UpcomingMoviesScreen(
     movieListState: MovieListState,
-    navController: NavHostController ,
+    navController: NavHostController,
     onEvent : (MovieListUIEvent) -> Unit
 ){
-    if(movieListState.popularMovieList.isEmpty()){
+    if(movieListState.upcomingMovieList.isEmpty()){
         Box(
             modifier = Modifier.fillMaxSize() ,
             contentAlignment = Alignment.Center
@@ -36,15 +37,15 @@ fun PopularMoviesScreen(
             modifier = Modifier.fillMaxSize() ,
             contentPadding = PaddingValues(vertical = 8.dp , horizontal = 4.dp)
         ) {
-            items(movieListState.popularMovieList.size) { index ->
+            items(movieListState.upcomingMovieList.size) { index ->
                 MovieItem(
-                    movie = movieListState.popularMovieList[index],
+                    movie = movieListState.upcomingMovieList[index],
                     navHostController =navController
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
-                if(index>= movieListState.popularMovieList.size-1 && !movieListState.isLoading){
-                    onEvent(MovieListUIEvent.Paginate(Constants.POPULAR))
+                if(index>= movieListState.upcomingMovieList.size-1 && !movieListState.isLoading){
+                    onEvent(MovieListUIEvent.Paginate(Constants.UPCOMING))
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.films_app.movieList.presentation.moviesList
+package com.example.films_app.movieList.presentation.movies.moviesList
 
 import com.example.films_app.movieList.domain.Movie
 

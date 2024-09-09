@@ -1,4 +1,4 @@
-package com.example.films_app.movieList.presentation.moviesList
+package com.example.films_app.movieList.presentation.movies
 
 
 
@@ -24,6 +24,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.films_app.R
 import com.example.films_app.movieList.presentation.common.BottomNavigationBar
+import com.example.films_app.movieList.presentation.movies.moviesList.MovieListViewModel
+import com.example.films_app.movieList.presentation.movies.moviesList.PopularMoviesScreen
+import com.example.films_app.movieList.presentation.movies.moviesList.UpcomingMoviesScreen
 import com.example.films_app.movieList.presentation.navigation.Screen
 
 
@@ -72,7 +75,11 @@ fun HomeScreen(
                     )
                 }
                 composable(Screen.UpComingMovies.route){
-                   // UpcomingMoviesScreen()
+                    UpcomingMoviesScreen(
+                        navController=navController ,
+                        movieListState = movieListState,
+                        onEvent = movieListViewModel::onEvent
+                    )
                 }
             }
         }

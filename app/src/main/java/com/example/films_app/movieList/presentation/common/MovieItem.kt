@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ImageNotSupported
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +30,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -35,7 +37,6 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.example.films_app.R
 import com.example.films_app.movieList.domain.Movie
 import com.example.films_app.movieList.presentation.navigation.Screen
 import com.example.films_app.movieList.util.Constants
@@ -84,17 +85,12 @@ fun MovieItem(
                     .background(MaterialTheme.colorScheme.onTertiary) ,
                 contentAlignment = Alignment.Center
             ){
-               /* Icon(
+                Icon(
                     imageVector = Icons.Rounded.ImageNotSupported,
-                    contentDescription = movie.title
-                )*/
-                Image(
-                    painter = painterResource(id = R.drawable.image_not_available),
-                    contentDescription = movie.title
+                    contentDescription = movie.title ,
+                    modifier = Modifier.size(60.dp)
                 )
-
             }
-
         }
 
         if (imageState is AsyncImagePainter.State.Success){

@@ -10,8 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.films_app.movieList.presentation.moviesList.HomeScreen
-import com.example.films_app.movieList.presentation.moviesList.MovieListViewModel
+import com.example.films_app.movieList.presentation.movies.HomeScreen
+import com.example.films_app.movieList.presentation.movies.moviesList.MovieListViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable

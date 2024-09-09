@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.films_app.R
-import com.example.films_app.movieList.presentation.moviesList.MovieListUIEvent
+import com.example.films_app.movieList.presentation.movies.moviesList.MovieListUIEvent
 import com.example.films_app.movieList.presentation.navigation.Screen
 
 
