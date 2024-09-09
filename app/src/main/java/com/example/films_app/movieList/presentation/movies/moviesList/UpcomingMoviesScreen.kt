@@ -15,13 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.films_app.movieList.presentation.common.MovieItem
-import com.example.films_app.movieList.util.Constants
 
 @Composable
 fun UpcomingMoviesScreen(
     movieListState: MovieListState,
     navController: NavHostController,
-    onEvent : (MovieListUIEvent) -> Unit
+    onPaginate: () -> Unit
 ){
     if(movieListState.upcomingMovieList.isEmpty()){
         Box(
@@ -44,8 +43,8 @@ fun UpcomingMoviesScreen(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
-                if(index>= movieListState.upcomingMovieList.size-1 && !movieListState.isLoading){
-                    onEvent(MovieListUIEvent.Paginate(Constants.UPCOMING))
+                if(index>= movieListState.upcomingMovieList.size-5 && !movieListState.isLoading){
+                    onPaginate()
                 }
             }
         }

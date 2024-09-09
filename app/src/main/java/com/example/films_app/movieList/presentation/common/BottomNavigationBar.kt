@@ -17,14 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.films_app.R
-import com.example.films_app.movieList.presentation.movies.moviesList.MovieListUIEvent
 import com.example.films_app.movieList.presentation.navigation.Screen
 
 
 @Composable
 fun BottomNavigationBar(
     bottomNavController : NavHostController,
-    onEvent :(MovieListUIEvent) -> Unit
+    onScreenChange: (Boolean) -> Unit
 ){
 
     val items = listOf(
@@ -32,10 +31,8 @@ fun BottomNavigationBar(
         BottomItem(  title = stringResource(id = R.string.upcoming) , icon = Icons.Rounded.Upcoming )
     )
 
-    val selected = rememberSaveable {
-        mutableIntStateOf(0)
-    }
-//onSurfaceVariant
+    val selected = rememberSaveable { mutableIntStateOf(0) }
+
     NavigationBar {
         Row(
             modifier = Modifier.background(MaterialTheme.colorScheme.onTertiary)
@@ -44,18 +41,14 @@ fun BottomNavigationBar(
                 NavigationBarItem(
                     selected = selected.intValue ==index,
                     onClick = {
-                        selected.intValue=index
-                        when(selected.intValue){
-                            0->{
-                                onEvent(MovieListUIEvent.Navigate)
-                                bottomNavController.popBackStack()
-                                bottomNavController.navigate(Screen.PopularMovies.route)
-                            }
-                            1->{
-                                onEvent(MovieListUIEvent.Navigate)
-                                bottomNavController.popBackStack()
-                                bottomNavController.navigate(Screen.UpComingMovies.route)
-                            }
+                        if (selected.intValue != index) {
+                            selected.intValue = index
+                            onScreenChange(index == 0)
+                            bottomNavController.popBackStack()
+                            bottomNavController.navigate(
+                                if (index == 0) Screen.PopularMovies.route
+                                else Screen.UpComingMovies.route
+                            )
                         }
                     },
                     icon = {

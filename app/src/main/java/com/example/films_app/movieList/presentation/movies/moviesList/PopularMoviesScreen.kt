@@ -14,13 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.films_app.movieList.presentation.common.MovieItem
-import com.example.films_app.movieList.util.Constants
 
 @Composable
 fun PopularMoviesScreen(
     movieListState: MovieListState,
     navController: NavHostController,
-    onEvent : (MovieListUIEvent) -> Unit
+    onPaginate: () -> Unit
 ){
     if(movieListState.popularMovieList.isEmpty()){
         Box(
@@ -43,8 +42,8 @@ fun PopularMoviesScreen(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
-                if(index>= movieListState.popularMovieList.size-1 && !movieListState.isLoading){
-                    onEvent(MovieListUIEvent.Paginate(Constants.POPULAR))
+                if(index>= movieListState.popularMovieList.size-5 && !movieListState.isLoading){
+                   onPaginate()
                 }
             }
         }

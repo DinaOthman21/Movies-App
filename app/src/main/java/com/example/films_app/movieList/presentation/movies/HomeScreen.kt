@@ -45,7 +45,13 @@ fun HomeScreen(
         bottomBar = {
             BottomNavigationBar(
                 bottomNavController =bottomNavController ,
-                onEvent = movieListViewModel ::onEvent
+               onScreenChange ={ isPopularScreen ->
+                       movieListViewModel.toggleScreen()
+                       bottomNavController.navigate(
+                           if (isPopularScreen) Screen.PopularMovies.route
+                           else Screen.UpComingMovies.route
+                       )
+               }
             )
         } ,
         topBar = {
@@ -71,14 +77,18 @@ fun HomeScreen(
                     PopularMoviesScreen(
                         navController=navController ,
                         movieListState = movieListState,
-                        onEvent = movieListViewModel::onEvent
+                        onPaginate = {
+                            movieListViewModel.paginatePopularMovies()
+                        }
                     )
                 }
                 composable(Screen.UpComingMovies.route){
                     UpcomingMoviesScreen(
                         navController=navController ,
                         movieListState = movieListState,
-                        onEvent = movieListViewModel::onEvent
+                        onPaginate = {
+                            movieListViewModel.paginateUpcomingMovies()
+                        }
                     )
                 }
             }
