@@ -4,4 +4,8 @@
     <string name="upcoming">Upcoming</string>
     <string name="popularMovies">PopularMovies</string>
     <string name="upcomingMovies">UpcomingMovies</string>
+    <string name="language">Language:</string>
+    <string name="releaseDate">Release Date:</string>
+    <string name="votes">Votes</string>
+    <string name="overview">Overview</string>
 </resources>

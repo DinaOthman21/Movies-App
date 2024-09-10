@@ -1,5 +1,6 @@
 package com.example.films_app.movieList.presentation.movies.details
 
+
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,7 +30,8 @@ class DetailsScreenViewModel @Inject constructor(
         getMovie(movieId?:-1)
     }
 
-    private fun getMovie(id:Int){
+
+     fun getMovie(id:Int){
         viewModelScope.launch(Dispatchers.IO) {
             _detailsState.update {
                 it.copy(isLoading = true)
@@ -51,7 +53,7 @@ class DetailsScreenViewModel @Inject constructor(
                     is Resource.Success -> {
                         result.data?.let { movie->
                             _detailsState.update {
-                                it.copy(movie = movie)
+                                it.copy(movie = movie , isLoading = false)
                             }
                         }
                     }

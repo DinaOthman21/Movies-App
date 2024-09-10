@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -34,10 +35,10 @@ import com.example.films_app.movieList.presentation.navigation.Screen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navController: NavHostController ,
-    movieListViewModel : MovieListViewModel
+    navController: NavHostController
 ){
 
+    val movieListViewModel = hiltViewModel<MovieListViewModel>()
     val movieListState =movieListViewModel.movieListState.collectAsState().value
     val bottomNavController = rememberNavController()
 
