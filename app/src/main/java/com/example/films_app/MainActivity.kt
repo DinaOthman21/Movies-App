@@ -9,7 +9,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.films_app.movieList.presentation.navigation.AppNavigation
-import com.example.films_app.movieList.presentation.navigation.SetBarColor
 import com.example.films_app.ui.theme.FilmsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +19,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FilmsAppTheme {
-                SetBarColor(MaterialTheme.colorScheme.onTertiary)
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

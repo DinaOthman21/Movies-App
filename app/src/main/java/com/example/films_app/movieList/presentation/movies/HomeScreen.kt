@@ -31,7 +31,6 @@ import com.example.films_app.movieList.presentation.movies.moviesList.UpcomingMo
 import com.example.films_app.movieList.presentation.navigation.Screen
 
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -65,7 +64,7 @@ fun HomeScreen(
                     )
                 } ,
                 modifier = Modifier.shadow(2.dp) ,
-                colors = TopAppBarDefaults.mediumTopAppBarColors(MaterialTheme.colorScheme.onTertiary)
+                colors = TopAppBarDefaults.mediumTopAppBarColors(MaterialTheme.colorScheme.onSecondary)
             )
 
         }

@@ -35,7 +35,7 @@ fun BottomNavigationBar(
 
     NavigationBar {
         Row(
-            modifier = Modifier.background(MaterialTheme.colorScheme.onTertiary)
+            modifier = Modifier.background(MaterialTheme.colorScheme.onSecondary)
         ) {
             items.forEachIndexed { index, bottomItem ->
                 NavigationBarItem(

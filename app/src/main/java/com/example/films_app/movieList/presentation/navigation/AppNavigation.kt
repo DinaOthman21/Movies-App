@@ -1,6 +1,8 @@
 package com.example.films_app.movieList.presentation.navigation
 
 
+
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
@@ -30,6 +32,7 @@ fun AppNavigation() {
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
+            SetBarColor(MaterialTheme.colorScheme.onSecondary)
             HomeScreen(navController = navController)
         }
         composable(
@@ -37,6 +40,8 @@ fun AppNavigation() {
             arguments = listOf(navArgument("movieId") { type = NavType.IntType })
         ) { backStackEntry ->
             DetailsScreen( backStackEntry)
+            SetBarColor( MaterialTheme.colorScheme.background)
         }
     }
 }
+
