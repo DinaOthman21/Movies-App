@@ -146,14 +146,14 @@ fun DetailsScreen(
 
                         Text(
                             modifier = Modifier.padding(start = 16.dp),
-                            text = stringResource(R.string.language) + movie.original_language ,
+                            text = stringResource(R.string.language) + " " + movie.original_language ,
                         )
 
                         Spacer(modifier = Modifier.height(10.dp))
 
                         Text(
                             modifier = Modifier.padding(start = 16.dp),
-                            text = stringResource(R.string.releaseDate) + movie.release_date ,
+                            text = stringResource(R.string.releaseDate) + " " + movie.release_date ,
                         )
 
                         Spacer(modifier = Modifier.height(10.dp))

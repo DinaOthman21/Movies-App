@@ -2,8 +2,8 @@
     <string name="app_name">Films-App</string>
     <string name="popular">Popular</string>
     <string name="upcoming">Upcoming</string>
-    <string name="popularMovies">PopularMovies</string>
-    <string name="upcomingMovies">UpcomingMovies</string>
+    <string name="popularMovies">Popular Movies</string>
+    <string name="upcomingMovies">Upcoming Movies</string>
     <string name="language">Language:</string>
     <string name="releaseDate">Release Date:</string>
     <string name="votes">Votes</string>
