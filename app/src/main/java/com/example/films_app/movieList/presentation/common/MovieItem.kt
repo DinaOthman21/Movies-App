@@ -86,7 +86,7 @@ fun MovieItem(
                     .padding(6.dp)
                     .height(250.dp)
                     .clip(RoundedCornerShape(22.dp))
-                    .background(MaterialTheme.colorScheme.onTertiary) ,
+                    .background(MaterialTheme.colorScheme.onSecondary) ,
                 contentAlignment = Alignment.Center
             ){
                 Icon(

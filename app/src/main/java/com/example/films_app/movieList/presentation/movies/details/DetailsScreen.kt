@@ -36,17 +36,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
 import com.example.films_app.R
+import com.example.films_app.movieList.presentation.common.BackIcon
 import com.example.films_app.movieList.presentation.common.RatingBar
 import com.example.films_app.movieList.util.Constants
 
 
 @Composable
 fun DetailsScreen(
+    navController: NavHostController,
     navBackStackEntry: NavBackStackEntry
 ){
 
@@ -71,7 +74,21 @@ fun DetailsScreen(
             .verticalScroll(rememberScrollState())
     ) {
 
-       Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    start = 12.dp,
+                    end = 12.dp
+                ),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            BackIcon{ navController.popBackStack() }
+        }
+
+       Spacer(modifier = Modifier.height(20.dp))
 
         Row(
             modifier = Modifier
@@ -89,7 +106,7 @@ fun DetailsScreen(
                         modifier = Modifier
                             .fillMaxSize()
                             .clip(RoundedCornerShape(12.dp))
-                            .background(MaterialTheme.colorScheme.onTertiary) ,
+                            .background(MaterialTheme.colorScheme.onSecondary) ,
                         contentAlignment = Alignment.Center
                     ){
                         Icon(

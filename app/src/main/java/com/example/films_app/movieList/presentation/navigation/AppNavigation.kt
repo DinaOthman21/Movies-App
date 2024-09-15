@@ -39,7 +39,7 @@ fun AppNavigation() {
             route = Screen.Details.route + "/{movieId}",
             arguments = listOf(navArgument("movieId") { type = NavType.IntType })
         ) { backStackEntry ->
-            DetailsScreen( backStackEntry)
+            DetailsScreen( navController ,backStackEntry)
             SetBarColor( MaterialTheme.colorScheme.background)
         }
     }
